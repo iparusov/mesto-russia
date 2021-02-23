@@ -1,0 +1,8 @@
+.element__info {
+    margin: 25px 15px 30px 20px;
+    max-width: 246px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
