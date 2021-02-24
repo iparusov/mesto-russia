@@ -15,7 +15,6 @@ editButton.addEventListener("click", function () {
     popupName.value = profileName.textContent;
     popupEmployment.value = profileEmployment.textContent;
     popup.classList.add("popup_opened");
-    console.log(popup.classList)
 });
 closeButton.addEventListener("click", closePopup);
 
