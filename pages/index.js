@@ -7,21 +7,27 @@ let popupName = document.querySelector(".popup__name");
 let popupEmployment = document.querySelector(".popup__employment");
 let saveButton = document.querySelector(".popup__submit");
 
+editButton.addEventListener("click", openPopup);
+closeButton.addEventListener("click", closePopup);
+saveButton.addEventListener("submit", formSubmitHandler);
+
 function closePopup () {
     popup.classList.remove("popup_opened");
 }
 
-editButton.addEventListener("click", function () {
+function openPopup () {
     popupName.value = profileName.textContent;
     popupEmployment.value = profileEmployment.textContent;
     popup.classList.add("popup_opened");
-});
-closeButton.addEventListener("click", closePopup);
+}    
 
-saveButton.addEventListener("click", function (evt) {
+function formSubmitHandler (evt) {
     evt.preventDefault();
     profileName.textContent = popupName.value;
     profileEmployment.textContent = popupEmployment.value;
     closePopup ();
-})
+}
+
+
+
 

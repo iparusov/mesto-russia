@@ -12,7 +12,7 @@
 }
 
 .profile__button-edit:hover {
-    background-image: url(../../../images/button-edit-hover.svg);
+    opacity: 0.6;
     cursor: pointer;
 }
 
