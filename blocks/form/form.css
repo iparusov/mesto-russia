@@ -1,0 +1,14 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form :nth-child(2) {
+    margin: 0 36px 0 36px;
+}
+
+@media screen and (max-width: 515px) {
+    .form :nth-child(even) {
+        margin: 0 22px 0 22px;
+    }
+}
