@@ -5,11 +5,11 @@ let profileName = document.querySelector(".profile__name");
 let profileEmployment = document.querySelector(".profile__employment");
 let popupName = document.querySelector(".form__input_name");
 let popupEmployment = document.querySelector(".form__input_employment");
-let saveButton = document.querySelector("form__submit");
+let form = document.querySelector("form");
 
 editButton.addEventListener("click", openPopup);
 closeButton.addEventListener("click", closePopup);
-popup.addEventListener("submit", formSubmitHandler); 
+form.addEventListener("submit", formSubmitHandler); 
 
 function closePopup () {
     popup.classList.remove("popup_opened");
