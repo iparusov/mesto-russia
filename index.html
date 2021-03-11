@@ -25,6 +25,26 @@
             </div>
         </div>
 
+        <div class="popup popup-add">
+            <div class="popup__container">
+                <button type="button" class="popup__close"></button>
+                <h3 class="popup__title">Новое место</h3>
+                <form class="form" name="place-data">
+                    <input type="text" name="place-name" class="form__input form__input_name" placeholder="Название">
+                    <input type="text" name="place-image" class="form__input form__input_employment" placeholder="Ссылка на картинку">
+                    <button type="submit" class="form__submit" id="form__submit">Создать</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup popup-image">
+            <div class="popup-image__container">
+                <img class="popup-image__image">
+                <h2 class="popup-image__title"></h2>
+                <button type="button" class="popup__close"></button>
+            </div>
+        </div>
+
         <main>
             <section class="profile">
                 <div class="profile__main">
@@ -42,48 +62,16 @@
 
             <section class="cards">
                 <ul class="elements">
-                <li class="element">
-                    <img class="element__image" src="./images/moscow.jpg" alt="Москва">
-                    <div class="element__info">
-                        <h2 class="element__title">Москва</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/saint-petersburg.jpg" alt="Санкт-Петербург">
-                    <div class="element__info">
-                        <h2 class="element__title">Санкт-Петербург</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>
-                </li>        
-                <li class="element">
-                    <img class="element__image" src="./images/sidney.jpg" alt="Сидней">
-                    <div class="element__info">
-                        <h2 class="element__title">Сидней</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>    
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/dresden.jpg" alt="Дрезден">
-                    <div class="element__info">
-                        <h2 class="element__title">Дрезден</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>    
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/lisbon.jpg" alt="Лиссабон">
-                    <div class="element__info">
-                        <h2 class="element__title">Лиссабон</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>    
-                </li>
-                <li class="element">
-                    <img class="element__image" src="./images/albuquerque.png" alt="Альбукерке">
-                    <div class="element__info">
-                        <h2 class="element__title">Альбукерке</h2>
-                        <button type="button" class="element__button-like"></button>
-                    </div>    
-                </li>
+                    <template class="template">
+                        <li class="element">
+                            <img class="element__image" src="" alt="">
+                            <button class="element__button-delete" type="button"></button>
+                            <div class="element__info">
+                                <h2 class="element__title"></h2>
+                                <button type="button" class="element__button-like" id="button-like"></button>
+                            </div>
+                        </li>
+                    </template>
                 </ul>
             </section>
         </main>     

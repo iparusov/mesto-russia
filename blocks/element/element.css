@@ -1,8 +1,10 @@
 .element {
     max-width: 282px;
     display: flex;
+    position: relative;
     justify-content: center;
     flex-direction: column;
     border-radius: 10px;
     background-color: #ffffff;
+    z-index: 0;
 }
