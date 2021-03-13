@@ -46,18 +46,6 @@ const initialCards = [
 ]; 
 
 
-editButton.addEventListener("click", () => { 
-  changeProfileEditPopupValues ()
-  openPopup(popup);
-});
-closeButton.addEventListener("click", () => { closePopup(popup) });
-closeButtonAdd.addEventListener("click", function () {closePopup(popupAdd)});
-addButton.addEventListener("click", () => {openPopup(popupAdd)});
-form.addEventListener("submit", formSubmitHandler); 
-formAdd.addEventListener("submit", addElement); 
-closeButtonPhoto.addEventListener("click", () => {closePopup(popupImage)});
-
-
 function closePopup (popup) {
     popup.classList.remove("popup_opened");
 }
@@ -77,10 +65,6 @@ function changePopupImageValues (evt) {
     popupPhoto.alt = evt.target.alt;
 }
 
-function openPopupAdd () {
-    popupAdd.classList.add("popup_opened");
-}    
-
 function formSubmitHandler(evt) {
     evt.preventDefault ();
     profileName.textContent = popupName.value;
@@ -89,14 +73,21 @@ function formSubmitHandler(evt) {
 }
 
 initialCards.forEach(function (item) {
-    createCard (item)});
+    addCard (elements, createCard(item));
+});
+
+//Не знаю это ли Вы имели ввиду, но я попытался
 
 function addElement (evt) {
     evt.preventDefault ();
-    createCard ({name: popupAddName.value, link: popupAddImage.value});
+    addCard (elements, createCard({name: popupAddName.value, link: popupAddImage.value}));
     closePopup (popupAdd);
     formAdd.reset();
-}    
+}  
+
+function addCard (container, cardElement) {
+    container.prepend(cardElement);
+}
 
 function createCard (item) {
     const newElement = templateElement.content.cloneNode(true);
@@ -106,7 +97,6 @@ function createCard (item) {
     titleElement.textContent = item.name;
     imageElement.src = item.link;
     imageElement.alt = item.name;
-    elements.prepend(newElement);
     return newElement;  
 }
 
@@ -131,9 +121,18 @@ function deleteElement(evt) {
     console.log("deleted")
 }
 
-function closePopupImage () {
-    popupImage.classList.remove("popup_opened");
-} 
+
+editButton.addEventListener("click", () => { 
+  changeProfileEditPopupValues ()
+  openPopup(popup);
+});
+closeButton.addEventListener("click", () => { closePopup(popup) });
+closeButtonAdd.addEventListener("click", function () {closePopup(popupAdd)});
+addButton.addEventListener("click", () => {openPopup(popupAdd)});
+form.addEventListener("submit", formSubmitHandler); 
+formAdd.addEventListener("submit", addElement); 
+closeButtonPhoto.addEventListener("click", () => {closePopup(popupImage)});
+
 
 
 
