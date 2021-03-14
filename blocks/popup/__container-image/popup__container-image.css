@@ -1,9 +1,8 @@
-.popup__container_type_image {
+.popup__container-image {
     display: flex;
     flex-direction: column;
     position: relative;
     border-radius: 0;
     background-color: transparent;
     color: white;
-    max-width: 75vw;
 }

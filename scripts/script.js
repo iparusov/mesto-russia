@@ -2,7 +2,7 @@ const editButton = document.querySelector(".profile__button-edit");
 const closeButton = document.querySelector(".popup__close");
 const addButton = document.querySelector(".profile__button-add");
 const popup = document.querySelector(".popup");
-const popupAdd = document.querySelector(".popup_type_add")
+const popupAdd = document.querySelector("#popup-add")
 const profileName = document.querySelector(".profile__name");
 const profileEmployment = document.querySelector(".profile__employment");
 const popupName = document.querySelector(".form__input_name");
@@ -16,7 +16,7 @@ const popupAddName = popupAdd.querySelector(".form__input_name");
 const popupAddImage = popupAdd.querySelector(".form__input_employment");
 const popupImage = document.querySelector(".popup_type_image");
 const popupPhoto = document.querySelector(".popup__image");
-const popupTitle = document.querySelector(".popup__title_type_image");
+const popupTitle = document.querySelector(".popup__title-image");
 const closeButtonPhoto = popupImage.querySelector(".popup__close");
 const initialCards = [
     {
