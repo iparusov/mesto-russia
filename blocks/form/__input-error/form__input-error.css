@@ -1,0 +1,19 @@
+.form__input-error {
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    display: inline;
+    max-width: 358px;
+    margin: 5px 36px 13px 36px;
+    box-sizing: border-box;
+    height: 25px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}  
+
+@media screen and (max-width: 515px) {
+    .form__input-error {
+        margin: 5px 22px 13px 22px;
+    }
+}

@@ -5,11 +5,11 @@
     font-size: 14px;
     line-height: 17px;
     max-width: 358px;
-    margin: 54px 36px 30px 36px;
+    margin: 54px 36px 0 36px;
 }
 
 @media screen and (max-width: 515px) {
     .form__input {
-        margin: 75px 22px 30px 22px;
+        margin: 75px 22px 0 22px;
     }
 }
