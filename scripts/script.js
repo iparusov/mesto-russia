@@ -48,11 +48,28 @@ const initialCards = [
 
 function closePopup (popup) {
     popup.classList.remove("popup_opened");
+    document.removeEventListener("keydown", closePopupByEsc);
 }
 
 function openPopup (popup) {
     popup.classList.add("popup_opened");
+    document.addEventListener("keydown", closePopupByEsc);
+    document.addEventListener("mousedown", closePopupByOverlayClick);
 }
+
+function closePopupByEsc(evt) {
+    popupOpened = document.querySelector(".popup_opened")
+    if (evt.keyCode === 27) {
+        closePopup(popupOpened);
+    }
+}
+
+function closePopupByOverlayClick(evt) {
+    popupOpened = document.querySelector(".popup_opened");
+    if (evt.target === popupOpened) {
+        closePopup(popupOpened);
+    }
+};
 
 function changeProfileEditPopupValues () {
     popupName.value = profileName.textContent;
@@ -75,8 +92,6 @@ function formSubmitHandler(evt) {
 initialCards.forEach(function (item) {
     addCard (elements, createCard(item));
 });
-
-//Не знаю это ли Вы имели ввиду, но я попытался
 
 function addElement (evt) {
     evt.preventDefault ();
@@ -118,14 +133,13 @@ function likeElement(evt) {
 
 function deleteElement(evt) {
     evt.target.closest(".element").remove();
-    console.log("deleted")
 }
-
 
 editButton.addEventListener("click", () => { 
   changeProfileEditPopupValues ()
   openPopup(popup);
 });
+
 closeButton.addEventListener("click", () => { closePopup(popup) });
 closeButtonAdd.addEventListener("click", function () {closePopup(popupAdd)});
 addButton.addEventListener("click", () => {openPopup(popupAdd)});
