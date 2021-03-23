@@ -149,7 +149,7 @@ editButton.addEventListener("click", () => {
 
 closeButton.addEventListener("click", () => { closePopup(popup) });
 closeButtonAdd.addEventListener("click", function () {closePopup(popupAdd)});
-addButton.addEventListener("click", () => {openPopup(popupAdd); turnOffSubmitButton(popupAdd);});
+addButton.addEventListener("click", () => {turnOffSubmitButton(popupAdd); openPopup(popupAdd);;});
 form.addEventListener("submit", formSubmitHandler); 
 formAdd.addEventListener("submit", addElement); 
 closeButtonPhoto.addEventListener("click", () => {closePopup(popupImage)});
