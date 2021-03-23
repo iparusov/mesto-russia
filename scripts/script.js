@@ -18,6 +18,7 @@ const popupImage = document.querySelector(".popup_type_image");
 const popupPhoto = document.querySelector(".popup__image");
 const popupTitle = document.querySelector(".popup__title-image");
 const closeButtonPhoto = popupImage.querySelector(".popup__close");
+const ESCAPE_KEYCODE = 27;
 const initialCards = [
     {
       name: 'Архыз',
@@ -45,27 +46,33 @@ const initialCards = [
     }
 ]; 
 
+function turnOffSubmitButton (popup) {
+    const submitButton = popup.querySelector(".form__submit");
+    submitButton.classList.add("form__submit_disabled");
+    submitButton.setAttribute('disabled', true);
+}
 
 function closePopup (popup) {
     popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", closePopupByEsc);
+    document.removeEventListener("mousedown", closePopupByOverlayClick);
 }
 
 function openPopup (popup) {
     popup.classList.add("popup_opened");
     document.addEventListener("keydown", closePopupByEsc);
-    document.addEventListener("mousedown", closePopupByOverlayClick);
+    popup.addEventListener("mousedown", closePopupByOverlayClick);
 }
 
 function closePopupByEsc(evt) {
-    popupOpened = document.querySelector(".popup_opened")
-    if (evt.keyCode === 27) {
+    if (evt.keyCode === ESCAPE_KEYCODE) {
+        const popupOpened = document.querySelector(".popup_opened")
         closePopup(popupOpened);
     }
 }
 
 function closePopupByOverlayClick(evt) {
-    popupOpened = document.querySelector(".popup_opened");
+    const popupOpened = document.querySelector(".popup_opened");
     if (evt.target === popupOpened) {
         closePopup(popupOpened);
     }
@@ -136,13 +143,13 @@ function deleteElement(evt) {
 }
 
 editButton.addEventListener("click", () => { 
-  changeProfileEditPopupValues ()
-  openPopup(popup);
+    changeProfileEditPopupValues ()
+    openPopup(popup);
 });
 
 closeButton.addEventListener("click", () => { closePopup(popup) });
 closeButtonAdd.addEventListener("click", function () {closePopup(popupAdd)});
-addButton.addEventListener("click", () => {openPopup(popupAdd)});
+addButton.addEventListener("click", () => {openPopup(popupAdd); turnOffSubmitButton(popupAdd);});
 form.addEventListener("submit", formSubmitHandler); 
 formAdd.addEventListener("submit", addElement); 
 closeButtonPhoto.addEventListener("click", () => {closePopup(popupImage)});
