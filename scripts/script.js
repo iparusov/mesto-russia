@@ -55,7 +55,7 @@ function turnOffSubmitButton (popup) {
 function closePopup (popup) {
     popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", closePopupByEsc);
-    document.removeEventListener("mousedown", closePopupByOverlayClick);
+    popup.removeEventListener("mousedown", closePopupByOverlayClick);  //Извиняюсь, не заметил сразу, что с документа удалял 
 }
 
 function openPopup (popup) {
